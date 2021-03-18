@@ -1,0 +1,84 @@
+<div class="container">
+  <h1>Mis deseos</h1>
+  <br />
+
+  <div class="form-group">
+    <label>Sueldo mensual:</label>
+    <input
+      type="number"
+      class="form-control"
+      placeholder="Ingresa tu sueldo mensual"
+      name="sueldoAhorro"
+      [(ngModel)]="sueldoAhorro"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Capacidad de ahorro: <SMAll>(En porcentaje)</SMAll> </label>
+    <input
+      type="number"
+      class="form-control"
+      placeholder="Ingresa tu capacidad de ahorro mensual en porcentaje"
+      name="sueldoAhorro"
+      [(ngModel)]="capacidadAhorro"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label>Mi deseo:</label>
+    <input
+      type="text"
+      class="form-control"
+      placeholder="Ingresa el nombre de lo que te quieres comprar: "
+      name="deseo"
+      [(ngModel)]="deseo"
+      required
+    />
+  </div>
+
+  <div class="form-group">
+    <label>El precio de mi deseo:</label>
+    <input
+      type="number"
+      class="form-control"
+      placeholder="Ingresa el precio de lo que te quieres comprar: "
+      name="precio"
+      [(ngModel)]="precio"
+      required
+    />
+  </div>
+
+  <button
+    type="submit"
+    class="btn"
+    style="background-color: #008F39; color: white"
+    (click)="manda()"
+  >
+    Calcular
+  </button>
+
+  <div  class="contenedor contenedor-valores">
+    <div class="valores-positivos">
+      <h5>Pago mensual posible:</h5>
+      <h6>{{ pago | currency: "MNX":"$":"1.2-2" }}</h6>
+    </div>
+    <div class="valores-positivos">
+      <h5>Tiempo en Meses:</h5>
+      <h6>
+        {{totalMeses | number: '1.2-2'}}
+      </h6>
+    </div>
+    <div class="valores-positivos">
+      <h5>Tiempo en años:</h5>
+      <h6>
+        {{ totalA | number:'1.2-2'}}
+      </h6>
+    </div>
+  </div>
+
+  <ng-template>
+
+  </ng-template>
+</div>

@@ -1,1 +1,338 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --color-primario: #787474;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 50px;
+    color: #787474;
+    text-transform: uppercase;
+    text-justify: newspaper;
+    padding-top: 20px
+}
+
+p{
+    text-align: justify;
+    margin-top: 5px;
+}
+
+.navbar .container img{
+    height: 50px;
+}
+
+.menu{
+    display: block;
+    background-color: #008F39;
+    height: auto;
+    line-height: 40px;
+    text-align: center;
+}
+
+.menu .container a{
+    margin: 2px 30px;
+    padding: 2px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    font-style: bond;
+    color: white;
+}
+
+.menu .container a:hover{
+    transform: scale(1.1);
+    background-color: yellow;
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    color: black;
+}
+
+.footer{
+    height: auto;
+    background-color: #787474;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.limpiarEstilos::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.container .contenedor{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.listado{
+    border: 1px solid black;
+    width: 280px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.valores-positivos{
+    border: 1px solid #008F39;
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    text-align: center;
+    color: #008F39;
+}
+
+.valores-positivos h5{
+    padding-top: 2px;
+    display: block;
+    height: 20px;
+    font-size: 15px;
+    text-decoration-line: underline;
+}
+
+.valores-positivos h6{
+    display: block;
+    line-height: 30px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.valores-negativos{
+    border: 1px solid #FF5049;
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    text-align: center;
+    color: #FF5049;
+}
+
+.valores-negativos h5{
+    padding-top: 2px;
+    display: block;
+    height: 20px;
+    font-size: 15px;
+    text-decoration-line: underline;
+}
+
+.valores-negativos h6{
+    display: block;
+    line-height: 30px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.elemento {
+    background-color: gainsboro;
+    border-bottom: 1px solid #e7e7e7;
+}
+.elemento:first-child { border-top: 1px solid #e7e7e7; }
+.elemento:nth-child(even) { background-color: #f7f7f7; }
+
+.elemento-descripcion{
+    float: left;
+    padding-left: 10px;
+}
+.elemento-valor{
+    float: right;
+    padding-right: 10px;
+    
+}
+
+.listado-ingresos{
+    background-color: seagreen;
+}
+
+.listado-ingresos h2{
+    text-align: center;
+}
+
+.listado-gastosf{
+    background-color: #FF5049;
+}
+.listado-gastosf h2{
+    text-align: center;
+}
+
+.listado-gastosv{
+    background-color: #FF5049;
+}
+
+.listado-gastosv h2{
+    text-align: center;
+}
+
+
+
+
+
+
+
+.elemento_eliminar {
+    float: left;
+}
+
+.elemento_eliminar--btn {
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    display: none;
+}
+
+.elemento-btn{
+    border: none;
+    background-color: inherit;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+.elemento-btn:hover{
+    color: red;
+}
+
+.elemento_eliminar--btn:focus { outline: none; }
+.elemento_eliminar--btn:active { transform: translateY(2px); }
+
+.elemento:hover .elemento_eliminar--btn { display: block; }
+.elemento:hover .elemento_valor { transform: translateX(-20px); }
+.elemento:hover .elemento_porcentaje { transform: translateX(-20px); }
+
+
+
+
+
+.agregar{
+    padding: 14px;
+    margin-bottom: 15px;
+}
+
+.agregar-contenedor{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.agregar-tipo{
+    border-radius: 5px;
+    width: 160px;
+    border: 1px solid #e7e7e7;
+    height: 44px;
+    font-size: 18px;
+    color: inherit;
+    background-color: #fff;
+    margin-right: 10px;
+    font-weight: 300;
+    transition: border 0.3s;
+}
+
+.agregar-descripcion,
+.agregar-valor{
+    border: 1px solid #e7e7e7;
+    background-color: #fff;
+    color: inherit;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 12px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    transition: border 0.3s;
+    height: 44px;
+    width: 160px;
+}
+
+.agregar-btn{
+    font-size: 20px;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.1;
+    margin-left: 10px;
+}
+
+.agregar-tipo,
+.agregar-descripcion,
+.agregar-valor{
+    outline: none;
+    border: 1px solid #008F39;
+}
+
+.contornoRojo{
+    outline: none;
+    border: 1px solid #FF5049;
+}
+
+
+h3{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 90px;
+    color: #787474;
+    text-justify: newspaper;
+    margin-top: 25px;
+    padding-top: 30px;
+
+}
+
+
+.container .glosario h5 {
+    font-family: 'Montserrat', sans-serif;
+    width: auto;
+    padding: 8px 20px;
+    font-size: 20px;
+    color: #787474;
+    text-align: justify;
+    
+}
+
+table{
+    margin: auto auto;
+    text-align: center;
+}
+
+th{
+    font-weight: bold;
+    color: #008F39;
+    width: auto;
+}
+
+td{
+    text-align: justify;
+    color: #787474;
+    font-size: small;
+    vertical-align: middle; 
+    padding: 5px;
+}
+
+.datos-inversion{
+    text-decoration: none;
+    color: #787474;
+    font-size: 25px;
+}
+
+.datos-inversion ul{
+    margin-top: 30px;
+    padding-left: 100px;
+}
+
+
+.contenedor-valores{
+    margin-top: 30px;
+    margin-bottom: 40px;
+}

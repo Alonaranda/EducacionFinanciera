@@ -1,0 +1,190 @@
+<div class="informacion">
+  <div class="container">
+    <h1>¿Qué es la educación financiera?</h1>
+
+    <p>
+      Según la Organización para la Cooperación y el Desarrollo Económico
+      (OCDE), entendemos por Educación Financiera al proceso con el cual
+      logramos un mejor conocimiento de los diferentes productos y servicios que
+      las distintas entidades financieras ofrecen.
+    </p>
+    <p>
+      Entonces, la educación financiera se podría definir como la capacidad de
+      una persona de entender cómo funciona la economía y tomar decisiones a
+      partir de ese entendimiento.
+    </p>
+    <p>
+      Este tipo de información nos permite desarrollar habilidades que
+      finalmente se van a traducir un un mayor bienestar económico. Bien, ahora
+      que conocemos la teoría, la verdadera pregunta debería ser…
+    </p>
+
+
+    <hr />
+
+
+    <!--
+    <div *ngFor="let item of users; let i = index">
+      <p>
+        {{ i + 1 }} {{ item.nombre }} {{ item.apellido }} {{ item.email }}
+        {{ item.sueldoMensual }} id: {{ item.id }}
+      </p>
+    </div>
+    -->
+
+  </div>
+</div>
+
+<section class="presupuesto" id="presupuestoMensual">
+  <div class="container">
+    <h1>Presupuesto</h1>
+    <div class="container">
+
+        <form 
+        (ngSubmit)="f.form.valid && agregarValor()" #f="ngForm"
+        >
+            <div class="agregar">
+                <div class="agregar-contenedor">
+                    <select 
+                    class="agregar-tipo"
+                    (change)="tipoOperacion($event)"
+                    [ngClass]="{contornoRojo: tipo === 'gastoFijo'}"
+                    [ngClass]="{contornoRojo: tipo === 'gastoVariable'}"
+                    >
+                        <option selected>Selecciona:</option>
+                        <option value="ingreso">Ingreso</option>
+                        <option value="gastoFijo">Gasto Fijo</option>
+                        <option value="gastoVariable">Gasto Variable</option>
+                    </select>
+                    <input 
+                    [ngClass]="{contornoRojo: tipo === 'gastoFijo'}"
+                    [ngClass]="{contornoRojo: tipo === 'gastoVariable'}"
+                    type="text"
+                    class="agregar-descripcion"
+                    required
+                    name="descripcion"
+                    placeholder="Agrega descripción"
+                    [(ngModel)]='descripcion'
+                    >
+
+                    <input 
+                    [ngClass]="{contornoRojo: tipo === 'gastoFijo'}"
+                    [ngClass]="{contornoRojo: tipo === 'gastoVariable'}"
+                    type="number"
+                    class="agregar-valor"
+                    required
+                    name="valor"
+                    placeholder="Agrega el valor"
+                    [(ngModel)]='valor'
+                    >
+
+                    <button type="submit" class="agregar-btn"> 
+                            <i class="far fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+
+
+
+
+       
+      <div class="contenedor">
+          
+        <div class="valores-positivos">
+          <h5>Ingreso Mensual:</h5>
+          <h6>{{ ingresoMensual | currency: "MNX":"$":"1.2-2" }}</h6>
+        </div>
+        <div class="valores-positivos">
+          <h5>Presupuesto Mensual:</h5>
+          <h6>
+            {{ ingresoMensual - egresoMensual | currency: "MNX":"$":"1.2-2" }}
+          </h6>
+        </div>
+        <div class="valores-positivos">
+          <h5>Capacidad de ahorro: </h5>
+          <h6>
+              {{capacidadAhorro | percent}}
+          </h6>
+        </div>
+      </div>
+
+      <div class="contenedor">
+        <div class="valores-negativos">
+          <h5>Egreso Mensual:</h5>
+          <h6>- {{ egresoMensual | currency: "MNX":"$":"1.2-2" }}</h6>
+        </div>
+        <div class="valores-negativos">
+          <h5>Gastos Fijos:</h5>
+          <h6>- {{ totalGastosFijos | currency: "MNX":"$":"1.2-2" }}</h6>
+        </div>
+        <div class="valores-negativos">
+          <h5>Gastos Variables:</h5>
+          <h6>- {{ totalGastosVariables | currency: "MNX":"$":"1.2-2" }}</h6>
+        </div>
+      </div>
+
+      <br />
+
+      <div class="contenedor ">
+        <div class="listado">
+          <div class="listado-ingresos">
+            <h2>Ingresos</h2>
+            <div
+              *ngFor="let ingreso of ingresos"
+              class="elemento limpiarEstilos"
+            >
+              <div class="elemento-descripcion">{{ ingreso.descipcion }}</div>
+              <div class="elemento-valor">
+                + {{ ingreso.valor | currency: "MNX":"$":"1.2-2"
+                }}
+                <button class="elemento-btn" (click)="eliminarIngreso(ingreso)">
+                        <i class="far fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="listado">
+          <div class="listado-gastosf">
+            <h2>Gastos Fijos</h2>
+            <div
+              *ngFor="let gastof of gastosFijos"
+              class="elemento limpiarEstilos"
+            >
+              <div class="elemento-descripcion">{{ gastof.descipcion }}</div>
+              <div class="elemento-valor">
+                - {{ gastof.valor | currency: "MNX":"$":"1.2-2"
+                }}
+                <button class="elemento-btn" (click)="eliminargf(gastof)">
+                        <i class="far fa-trash-alt"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="listado">
+          <div class="listado-gastosv">
+            <h2>Gastos Variables</h2>
+            <div
+              *ngFor="let gastov of gastosVariables"
+              class="elemento limpiarEstilos"
+            >
+              <div class="elemento-descripcion">{{ gastov.descipcion }}</div>
+              <div class="elemento-valor">
+                - {{ gastov.valor | currency: "MNX":"$":"1.2-2"
+                }}
+                <button class="elemento-btn" (click)="eliminargv(gastov)">
+                    <i class="far fa-trash-alt"></i>
+                 </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
